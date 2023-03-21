@@ -8,5 +8,5 @@
 
 **This repository consists of HTML, CSS and images which are used to design an _INVOICE_ template using Vanilla JS**
 
-# What is vanilla JavaScript?
+# What is Vanilla JavaScript?
 VanillaJS is a name to refer to using plain JavaScript without any additional libraries like jQuery back in the days. People use it as a joke to remind other developers that many things can be done nowadays without the need for additional JavaScript libraries." Or, in our case, without new, fancy frameworks.
