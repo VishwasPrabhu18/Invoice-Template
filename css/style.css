@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+* {
+    /* border: 0; */
+    box-sizing: content-box;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    vertical-align: top;
+}
+
+*[contenteditable] {
+    border-radius: 0.25em;
+    min-width: 10px;
+    outline: 0;
+    position: relative;
+    cursor: text;
+    padding:0;
+    margin:0;
+    transition:all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0);
+    top:-1px;
+}
+
+*[contenteditable]:hover,
+*[contenteditable]:focus{
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 8px;
+  margin: -6px -8px;
+  box-shadow: 0 0 1em 0.5em rgba(104, 163, 219, 0.1);
+  border: 1px solid #ddd;
+}
+
+span[contenteditable] {
+    display: inline-block;
+}
+
+/* heading */
+h1 {
+    font: bold 100% sans-serif;
+    letter-spacing: 0.15em;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+/* page */
+html {
+    font: 16px/1 "Open Sans", sans-serif;
+    overflow: auto;
+    padding: 0.5in;
+    background: url("../images/background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: default;
+}
+
+body {
+    margin: 30px auto;
+    /* height: fit-content; */
+    background: transparent;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.invoice {
+    border: white;
+    box-sizing: border-box;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0.5in;
+    width: 8.5in;
+    background: white;
+    box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+}
+
+.header,
+.header h1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0 0 0;
+    font-size: 45px;
+}
+
+/* invoice-details */
+
+.invoice-details {
+    padding: 20px 0;
+}
+
+.invoice-details .row1{
+    font-weight: bold;
+}
+
+.mid1 {
+    margin-top: 4.4rem;
+    margin-left: 6rem;
+}
+
+.mid1 .invoice-head {
+    margin-top: -0.3rem;
+    margin-bottom: 0;
+    color: rgb(219, 123, 99);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.end1 {
+    margin-top: 4.4rem;
+    margin-left: 4rem;
+}
+
+.end1 .invoice-head {
+    margin-top: -0.3rem;
+    margin-bottom: 0;
+    color: rgb(219, 123, 99);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.mid1 .invoice-num,
+.end1 .invoice-num {
+    font-weight: bold;
+}
+
+.mid2{
+    margin-top: 4.4rem;
+    margin-left: 6rem;
+}
+
+.mid2 .invoice-head {
+    margin-bottom: 0;
+    color: rgb(219, 123, 99);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.end2 {
+    margin-top: 4.4rem;
+    margin-left: 3.8rem;
+}
+
+.end2 .invoice-head {
+    margin-bottom: 0;
+    color: rgb(219, 123, 99);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.mid2 .invoice-num {
+    font-weight: bold;
+}
+
+.end2 .invoice-num {
+    text-align: right;
+    font-weight: bold;
+}
+
+.mid2 .invoice-num {
+    margin-left: -1rem;
+}
+
+.mid2 .invoice-num:hover,
+.mid2 .invoice-num:focus {
+    margin-left: -1.5rem;
+}
+
+/* .mainTable {
+    width: 100%;
+    border-collapse: collapse;
+    display: inline-table;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainTable th {
+    color: white;
+    background-color: orange;
+    height: 2.5rem;
+} */
+
+table {
+    font-size: 75%;
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    padding: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+th,
+td {
+    padding: 0.5em;
+    position: relative;
+    text-align: center;
+}
+
+th {
+    background: #eba819;
+    padding: 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+td {
+    padding: 10px;
+    padding-bottom: 10px;
+}
+
+.mainTable tr:nth-child(3),
+.mainTable tr:nth-child(5),
+.mainTable tr:nth-child(7){
+    background-color: rgba(163, 160, 160, 0.144);
+}
+
+.mainTable tr .head1 {
+    text-align-last: left;
+    font-size: 14px;
+}
+
+.mainTable tr .head2 {
+    text-align-last: left;
+    font-size: 14px;
+}
+
+.mainTable tr .info2 {
+    padding-top: 20px;
+}
+
+.mainTable tr .taxTr {
+    background-color: rgba(163, 160, 160, 0.144);
+}
+
+.mainTable tr .total1 {
+    margin-top: -10rem;
+    background-color: rgba(163, 160, 160, 0.144);
+}
+
+.mainTable tr .total2 {
+    margin-top: -10rem;
+    background-color: #eba819
+}
+
+.mainTable tr .desc {
+    text-align-last: left;
+}
