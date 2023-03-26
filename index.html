@@ -55,6 +55,34 @@
 
             let dictKey = ["Date", "Description", "Qty/Hrs", "Rate", "Amount"];
 
+            let details = [
+                {
+                    company : {
+                        name: "Altenwerth Group",
+                        address: "8916 Fairfield St.Revere, MA",
+                        phone: "+1 505-280-3816",
+                        website: "chelsie.schneider@lakin.net",
+                        invoice_id : "98576",
+                        invoice_date: "23-09-2010"
+                    },
+                    invoice_to: {
+                        name: "Altra Systems",
+                        address: "9231 Linda Dr. Waukegan, IL",
+                        phone: "+1 684-782-9116",
+                        emailAddr: "hivag63419@altrasys.com",
+                        due_date: "12-10-2010",
+                        payment_date: "11-10-2010"
+                    },
+                    bank: {
+                        accNo: "5163200000000792",
+                        name: "NORTH CREDIT TRUST",
+                        ifsc: "SBIN0011513"
+                    }
+                }
+            ]
+
+            // console.log();
+
             document.addEventListener('DOMContentLoaded', function() {
                 var divMain = document.createElement('div');
                 divMain.className = "invoice";
@@ -94,8 +122,8 @@
                 divContainer1.className = "row mt-4";
 
                 const col1_div = comp_col1();   // company details column1
-                const col2_div = comp_col2_col3("col-4", "mid1", "Invoice #", "58496");   // company details column2
-                const col3_div = comp_col2_col3("col-3", "end1", "Invoice Date", "29-04-2019");   // company details column3
+                const col2_div = comp_col2_col3("col-4", "mid1", "Invoice #", details[0]["company"].invoice_id);   // company details column2
+                const col3_div = comp_col2_col3("col-3", "end1", "Invoice Date", details[0]["company"].invoice_date);   // company details column3
                 
                 // Binding Everything
                 divContainer1.appendChild(col1_div);
@@ -115,8 +143,8 @@
                 divContainer1.className = "row";
 
                 const col1_div = comp_col12();   // company details column1
-                const col2_div = comp_col2_col3("col-4", "mid1", "Due Date", "29-04-2019");   // company details column2
-                const col3_div = comp_col2_col3("col-3", "end1", "Payment Date", "29-04-2019");   // company details column3
+                const col2_div = comp_col2_col3("col-4", "mid1", "Due Date", details[0]["invoice_to"].due_date);   // company details column2
+                const col3_div = comp_col2_col3("col-3", "end1", "Payment Date", details[0]["invoice_to"].payment_date);   // company details column3
                 
                 // Binding Everything
                 divContainer1.appendChild(col1_div);
@@ -146,8 +174,8 @@
                 h5.textContent = "Bank Details:";
 
                 pTag1.className = "row1";
-                pTag1.contentEditable = true;
-                pTag1.innerHTML = `[Account Number]<br>[Bank Name]<br>[IFSC Code]`;
+                // pTag1.contentEditable = true;
+                pTag1.innerHTML = `ACCNO : ${details[0]["bank"].accNo}<br>Bank : ${details[0]["bank"].name}<br>IFSC : ${details[0]["bank"].ifsc}`;
 
                 divContainer2.appendChild(h5);
                 divContainer2.appendChild(pTag1);
@@ -170,9 +198,9 @@
                 var divContainer = document.createElement('div');
                 var pTag = document.createElement('p');
                 divContainer.className = "col-4 invoice-details";
-                pTag.contentEditable = true;
+                // pTag.contentEditable = true;
                 pTag.className = "row1";
-                pTag.innerHTML = `[Company Name]<br>[Address]<br>[Phone Number]<br>[Website Address]`;
+                pTag.innerHTML = `${details[0]["company"].name}<br>${details[0]["company"].address}<br>${details[0]["company"].phone}<br>${details[0]["company"].website}`;
 
                 divContainer.appendChild(pTag);
                 return divContainer;
@@ -189,9 +217,9 @@
                 h5.textContent = "Invoice To:";
 
                 divContainer.className = "col-4 invoice-details";
-                pTag.contentEditable = true;
+                // pTag.contentEditable = true;
                 pTag.className = "row1";
-                pTag.innerHTML = `[Name]<br>[Address]<br>[Phone Number]<br>[Email Address]`;
+                pTag.innerHTML = `${details[0]["invoice_to"].name}<br>${details[0]["invoice_to"].address}<br>${details[0]["invoice_to"].phone}<br>${details[0]["invoice_to"].emailAddr}`;
 
                 divContainer.appendChild(h5);
                 divContainer.appendChild(pTag);
@@ -209,7 +237,7 @@
                 pTag.className = "invoice-head";
                 pTag.textContent = pC;
                 h5.className = "invoice-num";
-                h5.contentEditable = true;
+                // h5.contentEditable = true;
                 h5.textContent = hC;
 
                 midDiv.appendChild(pTag);
@@ -243,7 +271,7 @@
                         var td = document.createElement('td');
                         var span = document.createElement('span');
 
-                        span.contentEditable = true;
+                        // span.contentEditable = true;
                         span.textContent = item[val];
                         td.appendChild(span);
                         if(val === "description"){
@@ -280,7 +308,7 @@
                 var td3 = document.createElement('td');
                 var span1 = document.createElement('span');
                 td3.className = "info1";
-                span1.contentEditable = true;
+                // span1.contentEditable = true;
                 span1.textContent = "$200.00";
                 td3.appendChild(span1);
 
@@ -305,14 +333,14 @@
                 var span1 = document.createElement('span');
                 td2.className = "head2 taxTr";
                 td2.textContent = "Tax@ :     ";
-                span1.contentEditable = true;
+                // span1.contentEditable = true;
                 span1.textContent = "7%";
                 td2.appendChild(span1);
 
                 var td3 = document.createElement('td');
                 var span2 = document.createElement('span');
                 td3.className = "info1 taxTr";
-                span2.contentEditable = true;
+                // span2.contentEditable = true;
                 span2.textContent = "$14.00";
                 td3.appendChild(span2);
 
@@ -338,7 +366,7 @@
                 var td3 = document.createElement('td');
                 var span = document.createElement('span');
                 span.className = "info2";
-                span.contentEditable = true;
+                // span.contentEditable = true;
                 td3.appendChild(span);
 
                 tr.appendChild(td1);
