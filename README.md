@@ -15,5 +15,5 @@ VanillaJS is a name to refer to using plain JavaScript without any additional li
 **After Make it Dynamic by fetching the data from JSON**
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/125431497/227756854-10ec8e84-4a55-4a69-8361-4c8f86d1c82f.png" alt="JSON Fetch Img" />
+  <img src="https://user-images.githubusercontent.com/125431497/227756993-3712a37f-b791-4637-8e25-caba897e9a61.png" alt="JSON Fetch Img" />
 </p>
