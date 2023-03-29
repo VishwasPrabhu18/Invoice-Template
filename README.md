@@ -20,6 +20,6 @@ VanillaJS is a name to refer to using plain JavaScript without any additional li
 
 <h4>Use this encoded key and use it as the argument to url like</h4>
 <code>{....url....}?message=key</code>
-<h4>You can generate the encoded key using Base64</h4>
+<h4>You can generate the encoded key using Base64 and the encoding data will be in **json.txt** file</h4>
 <a href="https://codebeautify.org/base64-encode" target="_blank">Click this </a>for Encode Website
 <h4>Generated key used with url as given above</h4>
