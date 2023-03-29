@@ -8,82 +8,22 @@
     </head>
     <body>
         <script>
-            let dictVal = [
-                {
-                    date: "28-04-2019",
-                    description: "Doors(Exterior)",
-                    qty: "2",
-                    rate: "$50.00",
-                    amount: "$100.00"
-                },
-                {
-                    date: "28-04-2019",
-                    description: "Wall Framing",
-                    qty: "2",
-                    rate: "$50.00",
-                    amount: "$100.00"
-                },
-                {
-                    date: "",
-                    description: "",
-                    qty: '',
-                    rate: '',
-                    amount: "$0.00"
-                },
-                {
-                    date: "",
-                    description: "",
-                    qty: '',
-                    rate: '',
-                    amount: "$0.00"
-                },
-                {
-                    date: "",
-                    description: "",
-                    qty: '',
-                    rate: '',
-                    amount: "$0.00"
-                },
-                {
-                    date: "",
-                    description: "",
-                    qty: '',
-                    rate: '',
-                    amount: "$0.00"
-                }
-            ];
+            var dictVal="", dictKey="", details="";  // JSON main keys
 
-            let dictKey = ["Date", "Description", "Qty/Hrs", "Rate", "Amount"];
+            function globalVals() {
+                let searchParams = new URLSearchParams(window.location.search);     // getting the url data
+                var message = searchParams.get('message');
+                
+                var decodedString = atob(message);      // Decode the String data
+                let myArray = JSON.parse(decodedString);
 
-            let details = [
-                {
-                    company : {
-                        name: "Altenwerth Group",
-                        address: "8916 Fairfield St.Revere, MA",
-                        phone: "+1 505-280-3816",
-                        website: "chelsie.schneider@lakin.net",
-                        invoice_id : "98576",
-                        invoice_date: "23-09-2010"
-                    },
-                    invoice_to: {
-                        name: "Altra Systems",
-                        address: "9231 Linda Dr. Waukegan, IL",
-                        phone: "+1 684-782-9116",
-                        emailAddr: "hivag63419@altrasys.com",
-                        due_date: "12-10-2010",
-                        payment_date: "11-10-2010"
-                    },
-                    bank: {
-                        accNo: "5163200000000792",
-                        name: "NORTH CREDIT TRUST",
-                        ifsc: "SBIN0011513"
-                    }
-                }
-            ]
-
-            // console.log();
+                dictVal = myArray.dictVal;
+                dictKey = myArray.dictKey;
+                details = myArray.details;
+            }
 
             document.addEventListener('DOMContentLoaded', function() {
+                globalVals();
                 var divMain = document.createElement('div');
                 divMain.className = "invoice";
                 const header = headerDiv();
@@ -122,8 +62,8 @@
                 divContainer1.className = "row mt-4";
 
                 const col1_div = comp_col1();   // company details column1
-                const col2_div = comp_col2_col3("col-4", "mid1", "Invoice #", details[0]["company"].invoice_id);   // company details column2
-                const col3_div = comp_col2_col3("col-3", "end1", "Invoice Date", details[0]["company"].invoice_date);   // company details column3
+                const col2_div = comp_col2_col3("col-4", "mid1", "Invoice #", details.companyDetails.invoice_id);   // company details column2
+                const col3_div = comp_col2_col3("col-3", "end1", "Invoice Date", details.companyDetails.invoice_date);   // company details column3
                 
                 // Binding Everything
                 divContainer1.appendChild(col1_div);
@@ -143,8 +83,8 @@
                 divContainer1.className = "row";
 
                 const col1_div = comp_col12();   // company details column1
-                const col2_div = comp_col2_col3("col-4", "mid1", "Due Date", details[0]["invoice_to"].due_date);   // company details column2
-                const col3_div = comp_col2_col3("col-3", "end1", "Payment Date", details[0]["invoice_to"].payment_date);   // company details column3
+                const col2_div = comp_col2_col3("col-4", "mid1", "Due Date", details.invoice_to.due_date);   // company details column2
+                const col3_div = comp_col2_col3("col-3", "end1", "Payment Date", details.invoice_to.payment_date);   // company details column3
                 
                 // Binding Everything
                 divContainer1.appendChild(col1_div);
@@ -175,7 +115,7 @@
 
                 pTag1.className = "row1";
                 // pTag1.contentEditable = true;
-                pTag1.innerHTML = `ACCNO : ${details[0]["bank"].accNo}<br>Bank : ${details[0]["bank"].name}<br>IFSC : ${details[0]["bank"].ifsc}`;
+                pTag1.innerHTML = `ACCNO : ${details.bank.accNo}<br>Bank : ${details.bank.name}<br>IFSC : ${details.bank.ifsc}`;
 
                 divContainer2.appendChild(h5);
                 divContainer2.appendChild(pTag1);
@@ -200,7 +140,7 @@
                 divContainer.className = "col-4 invoice-details";
                 // pTag.contentEditable = true;
                 pTag.className = "row1";
-                pTag.innerHTML = `${details[0]["company"].name}<br>${details[0]["company"].address}<br>${details[0]["company"].phone}<br>${details[0]["company"].website}`;
+                pTag.innerHTML = `${details.companyDetails.name}<br>${details.companyDetails.address}<br>${details.companyDetails.phone}<br>${details.companyDetails.website}`;
 
                 divContainer.appendChild(pTag);
                 return divContainer;
@@ -219,7 +159,7 @@
                 divContainer.className = "col-4 invoice-details";
                 // pTag.contentEditable = true;
                 pTag.className = "row1";
-                pTag.innerHTML = `${details[0]["invoice_to"].name}<br>${details[0]["invoice_to"].address}<br>${details[0]["invoice_to"].phone}<br>${details[0]["invoice_to"].emailAddr}`;
+                pTag.innerHTML = `${details.invoice_to.name}<br>${details.invoice_to.address}<br>${details.invoice_to.phone}<br>${details.invoice_to.emailAddr}`;
 
                 divContainer.appendChild(h5);
                 divContainer.appendChild(pTag);
@@ -252,8 +192,9 @@
                 var row1 = document.createElement('tr');
                 table.className = "mainTable";
                 
-                dictKey.forEach(val => {
+                dictKey.forEach(element => {
                     var th = document.createElement('th');
+                    let val = Object.values(element)[0];
                     th.textContent = val;
                     if(val === "Description"){
                         th.className = "desc";
@@ -264,9 +205,10 @@
                     row1.appendChild(th);
                 });
                 table.appendChild(row1);    // table head i.e th is added
-
+                
                 dictVal.forEach((item, idx) => {
                     var tr = document.createElement('tr');
+                    console.log(item);
                     for(const val in item) {
                         var td = document.createElement('td');
                         var span = document.createElement('span');
