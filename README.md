@@ -23,5 +23,3 @@ VanillaJS is a name to refer to using plain JavaScript without any additional li
 <h4>You can generate the encoded key using Base64</h4>
 <a href="https://codebeautify.org/base64-encode" target="_blank">Click this </a>for Encode Website
 <h4>Generated key used with url as given above</h4>
-
-[Stackoverflow The Key](https://stackoverflow.blog/2021/03/31/the-key-copy-paste/){:target="_blank" rel="noopener"}
